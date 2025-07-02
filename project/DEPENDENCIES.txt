@@ -1,0 +1,164 @@
+# Fitness App - Dependencies and Setup Guide
+
+## Core Dependencies (Already in package.json)
+These dependencies are already included in the project's package.json:
+
+### Expo Core
+- expo@^53.0.0
+- expo-router@~5.0.2
+- expo-constants@~17.1.3
+- expo-status-bar@~2.2.2
+- expo-splash-screen@~0.30.6
+- expo-linking@~7.1.3
+- expo-system-ui@~5.0.5
+
+### React & React Native
+- react@19.0.0
+- react-dom@19.0.0
+- react-native@0.79.1
+- react-native-web@^0.20.0
+
+### Navigation
+- @react-navigation/native@^7.0.14
+- @react-navigation/bottom-tabs@^7.2.0
+- react-native-screens@~4.10.0
+- react-native-safe-area-context@5.3.0
+- react-native-gesture-handler@~2.24.0
+
+### UI & Styling
+- expo-linear-gradient@~14.1.3
+- expo-blur@~14.1.3
+- @expo/vector-icons@^14.1.0
+- lucide-react-native@^0.475.0
+- react-native-svg@15.11.2
+- react-native-reanimated@~3.17.4
+
+### Fonts
+- expo-font@~13.2.2
+- @expo-google-fonts/inter@^0.2.3
+
+### Camera & Media
+- expo-camera@~16.1.5
+
+### Other Features
+- expo-haptics@~14.1.3
+- expo-symbols@~0.4.3
+- expo-web-browser@~14.1.5
+- react-native-url-polyfill@^2.0.0
+- react-native-webview@13.13.5
+- @lucide/lab@^0.1.2
+
+### Development Dependencies
+- @babel/core@^7.25.2
+- @types/react@~19.0.10
+- typescript@~5.8.3
+
+## Installation Instructions
+
+### Prerequisites
+1. Node.js (version 18 or higher)
+2. npm or yarn package manager
+3. Expo CLI (install globally): `npm install -g @expo/cli`
+
+### Setup Steps
+
+1. Clone or download the project
+2. Navigate to the project directory
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+   or
+   ```bash
+   yarn install
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   or
+   ```bash
+   yarn dev
+   ```
+
+### Platform-Specific Setup
+
+#### For iOS Development (macOS only)
+- Install Xcode from the App Store
+- Install iOS Simulator
+- Run: `npx expo run:ios`
+
+#### For Android Development
+- Install Android Studio
+- Set up Android SDK and emulator
+- Run: `npx expo run:android`
+
+#### For Web Development
+- No additional setup required
+- Runs automatically with `npm run dev`
+
+### Additional Notes
+
+1. **Camera Permissions**: The app uses expo-camera which requires camera permissions on mobile devices.
+
+2. **Font Loading**: The app uses Inter font family from Google Fonts, which loads automatically.
+
+3. **Platform Compatibility**: This app is designed to work on iOS, Android, and Web platforms.
+
+4. **Environment Variables**: Create a `.env` file in the root directory if you need to add environment variables.
+
+### Troubleshooting
+
+1. **Metro bundler issues**: Clear cache with `npx expo start --clear`
+2. **Font loading issues**: Ensure fonts are properly loaded before rendering components
+3. **Navigation issues**: Make sure all route files are properly structured in the `/app` directory
+
+### Production Build
+
+For production builds:
+- Web: `npm run build:web`
+- iOS: `npx expo build:ios`
+- Android: `npx expo build:android`
+
+### Optional Enhancements
+
+If you want to add additional features later:
+
+#### For Payments/Subscriptions
+- RevenueCat SDK (requires ejecting to bare workflow)
+- Follow: https://www.revenuecat.com/docs/getting-started/installation/expo
+
+#### For Push Notifications
+- expo-notifications
+- Firebase Cloud Messaging setup
+
+#### For Analytics
+- expo-analytics-amplitude
+- Firebase Analytics
+
+#### For State Management (if needed)
+- @reduxjs/toolkit
+- react-redux
+- zustand (lightweight alternative)
+
+#### For API Integration
+- axios or fetch (built-in)
+- react-query or SWR for data fetching
+
+### File Structure
+```
+fitness-app/
+├── app/                    # All routes and screens
+│   ├── (tabs)/            # Tab-based navigation
+│   ├── _layout.tsx        # Root layout
+│   ├── onboarding.tsx     # Onboarding screen
+│   └── +not-found.tsx     # 404 screen
+├── components/            # Reusable components
+├── hooks/                 # Custom hooks
+├── assets/               # Images and static files
+├── package.json          # Dependencies
+└── tsconfig.json         # TypeScript configuration
+```
+
+This fitness app is production-ready with beautiful UI, comprehensive features, and proper architecture following Expo Router best practices.
